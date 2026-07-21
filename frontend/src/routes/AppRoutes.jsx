@@ -5,47 +5,88 @@ import Register from "../pages/Register";
 import Dashboard from "../pages/Dashboard";
 import Assessment from "../pages/Assessment";
 import Profile from "../pages/Profile";
-import NotFound from "../pages/NotFound";
+
+import DashboardLayout from "../components/layout/DashboardLayout";
 import ProtectedRoute from "../components/ProtectedRoute";
-export default function AppRoutes() {
-    return (
-        <Routes>
 
-            <Route path="/" element={<Navigate to="/login" replace />} />
 
-            <Route path="/login" element={<Login />} />
+export default function AppRoutes(){
 
-            <Route path="/register" element={<Register />} />
+return (
 
-            <Route
-                path="/dashboard"
-                element={
-                    <ProtectedRoute>
-                        <Dashboard />
-                    </ProtectedRoute>
-                }
-            />
+<Routes>
 
-            <Route
-                path="/assessment"
-                element={
-                    <ProtectedRoute>
-                        <Assessment />
-                    </ProtectedRoute>
-                }
-            />
 
-            <Route
-                path="/profile"
-                element={
-                    <ProtectedRoute>
-                        <Profile />
-                    </ProtectedRoute>
-                }
-            />
+{/* Public Routes */}
 
-            <Route path="*" element={<NotFound />} />
+<Route
+path="/"
+element={<Navigate to="/login" replace />}
+/>
 
-        </Routes>
-    );
+
+<Route
+path="/login"
+element={<Login/>}
+/>
+
+
+<Route
+path="/register"
+element={<Register/>}
+/>
+
+
+
+{/* Protected Dashboard Routes */}
+
+<Route
+
+element={
+
+<ProtectedRoute>
+
+<DashboardLayout/>
+
+</ProtectedRoute>
+
+}
+
+>
+
+
+<Route
+path="/dashboard"
+element={<Dashboard/>}
+/>
+
+
+<Route
+path="/assessment"
+element={<Assessment/>}
+/>
+
+
+<Route
+path="/profile"
+element={<Profile/>}
+/>
+
+
+</Route>
+
+
+
+{/* Unknown Route */}
+
+<Route
+path="*"
+element={<Navigate to="/dashboard" replace />}
+/>
+
+
+</Routes>
+
+)
+
 }

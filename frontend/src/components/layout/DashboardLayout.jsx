@@ -1,12 +1,39 @@
-import Navbar from "./Navbar";
+import Sidebar from "./Sidebar";
 
-export default function DashboardLayout({ children }) {
-    return (
-        <div className="min-h-screen flex flex-col bg-bg">
-            <Navbar />
-            <main className="flex-1">
-                {children}
-            </main>
-        </div>
-    );
+
+export default function DashboardLayout({children}){
+
+
+return(
+
+<div
+className="
+min-h-screen
+flex
+bg-[#f6f4ee]
+"
+>
+
+
+<Sidebar/>
+
+
+<main
+className="
+flex-1
+p-10
+"
+>
+
+
+{children}
+
+
+</main>
+
+
+</div>
+
+)
+
 }

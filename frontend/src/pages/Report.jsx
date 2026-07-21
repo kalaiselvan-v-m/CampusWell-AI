@@ -1,10 +1,8 @@
-import DashboardLayout from "../components/layout/DashboardLayout";
 import Card from "../components/common/Card";
 import { FileText } from "lucide-react";
 
 export default function Report() {
     return (
-        <DashboardLayout>
             <section className="mx-auto w-full max-w-6xl px-8 py-8 animate-fade-up">
                 <Card className="flex flex-col items-center gap-4 py-20 text-center">
                     <div className="flex h-14 w-14 items-center justify-center rounded-full bg-primary-soft">
@@ -18,6 +16,5 @@ export default function Report() {
                     </p>
                 </Card>
             </section>
-        </DashboardLayout>
     );
 }

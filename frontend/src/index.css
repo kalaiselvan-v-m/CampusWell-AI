@@ -1,116 +1,631 @@
 @import "tailwindcss";
 
-/* ============================================================
-   CampusWell AI — design tokens
-   Palette: warm parchment surface, deep pine ink, moss-green
-   brand, soft periwinkle accent for AI / highlight moments.
-   Type: Fraunces (display, used with restraint) + Inter (UI)
-   + IBM Plex Mono (scores & data, gives the numbers a clinical,
-   trustworthy read against the warm/organic palette).
-   ============================================================ */
+
+/* ================================
+   CampusWell AI Theme
+================================ */
+
 @theme {
-  --color-bg: #f6f4ee;
-  --color-surface: #ffffff;
-  --color-surface-sunken: #efece2;
 
-  --color-ink: #202b24;
-  --color-ink-soft: #5c6b60;
-  --color-ink-faint: #94a196;
+  --color-bg:#f6f4ee;
 
-  --color-primary: #4b6455;
-  --color-primary-dark: #2f4436;
-  --color-primary-soft: #dde5dd;
+  --color-surface:#ffffff;
 
-  --color-accent: #8d7ae0;
-  --color-accent-soft: #eae6fb;
+  --color-surface-sunken:#efece2;
 
-  --color-line: #e3ded2;
 
-  --color-good: #4b6455;
-  --color-warn: #c98a3f;
-  --color-risk: #c15b4a;
+  --color-ink:#202b24;
 
-  --font-display: "Fraunces", "Georgia", serif;
-  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+  --color-ink-soft:#5c6b60;
 
-  --shadow-soft: 0 1px 2px rgba(32, 43, 36, 0.04), 0 8px 24px -12px rgba(32, 43, 36, 0.10);
-  --shadow-lift: 0 4px 8px rgba(32, 43, 36, 0.05), 0 20px 40px -16px rgba(32, 43, 36, 0.16);
+  --color-ink-faint:#94a196;
+
+
+  --color-primary:#4b6455;
+
+  --color-primary-dark:#2f4436;
+
+  --color-primary-soft:#dde5dd;
+
+
+  --color-accent:#8d7ae0;
+
+  --color-accent-soft:#eae6fb;
+
+
+  --color-line:#e3ded2;
+
+
+  --font-display:"Fraunces","Georgia",serif;
+
+  --font-sans:"Inter",-apple-system,BlinkMacSystemFont,sans-serif;
+
+  --font-mono:"IBM Plex Mono",ui-monospace,monospace;
+
+
+  --shadow-soft:
+  0 8px 24px rgba(32,43,36,.08);
+
+
+  --shadow-lift:
+  0 20px 40px rgba(32,43,36,.14);
+
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+
+/* ================================
+   Global
+================================ */
+
+
+*{
+
+margin:0;
+
+padding:0;
+
+box-sizing:border-box;
+
 }
 
-html {
-  scroll-behavior: smooth;
+
+html{
+
+scroll-behavior:smooth;
+
 }
 
-body {
-  background: var(--color-bg);
-  color: var(--color-ink);
-  font-family: var(--font-sans);
-  -webkit-font-smoothing: antialiased;
+
+
+body{
+
+background:var(--color-bg);
+
+color:var(--color-ink);
+
+font-family:var(--font-sans);
+
+-webkit-font-smoothing:antialiased;
+
 }
 
-h1, h2, h3, h4 {
-  font-family: var(--font-display);
-  letter-spacing: -0.01em;
+
+
+h1,h2,h3,h4{
+
+font-family:var(--font-display);
+
+letter-spacing:-0.02em;
+
 }
 
-/* Numerals — scores, percentages, stats — always in mono for a
-   calm, data-trustworthy feel against the serif/sans pairing. */
-.font-data {
-  font-family: var(--font-mono);
-  font-variant-numeric: tabular-nums;
-  letter-spacing: -0.02em;
+
+
+.font-data{
+
+font-family:var(--font-mono);
+
+font-variant-numeric:tabular-nums;
+
 }
 
-::selection {
-  background: var(--color-accent-soft);
-  color: var(--color-primary-dark);
+
+
+/* ================================
+   Selection + Scroll
+================================ */
+
+
+::selection{
+
+background:var(--color-primary-soft);
+
+color:var(--color-primary-dark);
+
 }
 
-/* Focus states — always visible, never suppressed */
-:focus-visible {
-  outline: 2px solid var(--color-accent);
-  outline-offset: 2px;
-  border-radius: 4px;
+
+
+::-webkit-scrollbar{
+
+width:8px;
+
 }
 
-/* Scrollbar, minimal */
-::-webkit-scrollbar { width: 8px; height: 8px; }
-::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: var(--color-line); border-radius: 8px; }
-::-webkit-scrollbar-thumb:hover { background: var(--color-ink-faint); }
 
-/* ---------- Signature motion: the "breathing" ring ----------
-   Used once, on the wellness score — a slow, ambient inhale/exhale
-   that reflects the product's subject (calm, breath, regulation)
-   rather than a generic pulse-for-attention effect. */
-@keyframes breathe {
-  0%, 100% { transform: scale(0.96); opacity: 0.35; }
-  50% { transform: scale(1.06); opacity: 0.6; }
-}
-.animate-breathe {
-  animation: breathe 6s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+::-webkit-scrollbar-thumb{
+
+background:#cfd7cf;
+
+border-radius:20px;
+
 }
 
-@keyframes fade-up {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-.animate-fade-up {
-  animation: fade-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+
+
+/* ================================
+   Animations
+================================ */
+
+
+@keyframes fade-up{
+
+from{
+
+opacity:0;
+
+transform:translateY(10px);
+
 }
 
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.001ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.001ms !important;
-    scroll-behavior: auto !important;
-  }
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+
+
+.animate-fade-up{
+
+animation:fade-up .5s ease both;
+
+}
+
+
+
+@keyframes breathe{
+
+
+0%,100%{
+
+transform:scale(.96);
+
+opacity:.35;
+
+}
+
+
+50%{
+
+transform:scale(1.06);
+
+opacity:.6;
+
+}
+
+
+}
+
+
+
+.animate-breathe{
+
+animation:breathe 6s ease infinite;
+
+}
+
+
+
+/* ================================
+   Login Components
+================================ */
+
+
+.form{
+
+
+display:flex;
+
+flex-direction:column;
+
+gap:18px;
+
+background:white;
+
+padding:40px;
+
+width:450px;
+
+border-radius:30px;
+
+box-shadow:
+
+0 20px 40px rgba(32,43,36,.12);
+
+}
+
+
+
+
+.flex-column{
+
+
+display:flex;
+
+flex-direction:column;
+
+gap:8px;
+
+}
+
+
+
+.flex-column label{
+
+
+font-size:15px;
+
+font-weight:600;
+
+color:var(--color-ink);
+
+}
+
+
+
+.inputForm{
+
+
+height:52px;
+
+display:flex;
+
+align-items:center;
+
+padding:0 15px;
+
+background:white;
+
+border-radius:14px;
+
+border:1.5px solid var(--color-line);
+
+transition:.3s ease;
+
+}
+
+
+
+.inputForm:focus-within{
+
+
+border-color:var(--color-primary);
+
+box-shadow:
+
+0 0 0 4px rgba(75,100,85,.12);
+
+}
+
+
+
+.input{
+
+
+width:100%;
+
+height:100%;
+
+margin-left:12px;
+
+outline:none;
+
+border:none;
+
+font-size:15px;
+
+color:var(--color-ink);
+
+}
+
+
+
+.input::placeholder{
+
+color:var(--color-ink-faint);
+
+}
+
+
+
+
+.button-submit{
+
+
+height:52px;
+
+width:100%;
+
+margin-top:15px;
+
+
+border:none;
+
+border-radius:14px;
+
+
+background:var(--color-primary);
+
+color:white;
+
+
+font-weight:600;
+
+font-size:16px;
+
+
+cursor:pointer;
+
+
+transition:.3s ease;
+
+
+box-shadow:
+
+5px 5px 0 var(--color-primary-dark);
+
+}
+
+
+
+.button-submit:hover{
+
+
+background:var(--color-primary-dark);
+
+transform:translate(-2px,-2px);
+
+
+box-shadow:
+
+8px 8px 0 #8fb996;
+
+}
+
+
+
+
+
+/* ================================
+   Dashboard Components
+================================ */
+
+
+.dashboard-surface{
+
+
+background:var(--color-surface);
+
+
+border:1px solid var(--color-line);
+
+
+border-radius:24px;
+
+
+padding:24px;
+
+
+box-shadow:var(--shadow-soft);
+
+
+transition:.3s ease;
+
+
+}
+
+
+
+.dashboard-surface:hover{
+
+
+transform:translateY(-3px);
+
+box-shadow:var(--shadow-lift);
+
+
+}
+
+
+
+
+.dashboard-primary{
+
+
+background:var(--color-primary-dark);
+
+
+color:white;
+
+
+border-radius:28px;
+
+
+padding:32px;
+
+
+box-shadow:var(--shadow-lift);
+
+
+}
+
+
+
+
+.dashboard-button{
+
+
+display:inline-flex;
+
+align-items:center;
+
+justify-content:center;
+
+
+padding:14px 28px;
+
+
+background:var(--color-primary);
+
+
+color:white;
+
+
+border-radius:14px;
+
+
+font-weight:600;
+
+
+transition:.3s ease;
+
+
+}
+
+
+
+.dashboard-button:hover{
+
+
+background:var(--color-primary-dark);
+
+
+transform:translateY(-2px);
+
+
+}
+
+
+
+
+.dashboard-icon{
+
+
+height:44px;
+
+width:44px;
+
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+
+border-radius:16px;
+
+
+background:var(--color-primary-soft);
+
+
+color:var(--color-primary-dark);
+
+
+}
+
+
+
+
+.dashboard-progress{
+
+
+height:10px;
+
+
+overflow:hidden;
+
+
+border-radius:20px;
+
+
+background:var(--color-primary-soft);
+
+
+}
+
+
+
+.dashboard-progress-value{
+
+
+height:100%;
+
+
+border-radius:20px;
+
+
+background:var(--color-primary);
+
+
+}
+
+
+
+
+.dashboard-action{
+
+
+display:flex;
+
+align-items:center;
+
+
+gap:16px;
+
+
+padding:18px;
+
+
+border-radius:18px;
+
+
+border:1px solid var(--color-line);
+
+
+transition:.3s ease;
+
+
+}
+
+
+
+.dashboard-action:hover{
+
+
+background:var(--color-surface-sunken);
+
+
+}
+
+
+
+
+.dashboard-status{
+
+
+display:inline-flex;
+
+
+padding:8px 18px;
+
+
+border-radius:999px;
+
+
+background:var(--color-primary-soft);
+
+
+color:var(--color-primary-dark);
+
+
+font-weight:600;
+
+
 }
