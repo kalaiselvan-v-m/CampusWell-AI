@@ -36,20 +36,23 @@ export default function Input({
 
                 placeholder={placeholder}
 
-                className="
+               className="
                 w-full
-                rounded-xl
+                rounded-lg
                 border
-                border-gray-300
-                bg-gray-50
+                border-[#E3AFBC]
+                bg-white
                 px-4
                 py-3
+                text-[#5D001E]
+                placeholder:text-gray-400
                 outline-none
-                transition
-                focus:border-[#669BBC]
-                focus:ring-4
-                focus:ring-[#669BBC]/20
-                "
+                transition-all
+                duration-300
+                focus:border-[#9A1750]
+                focus:ring-2
+                focus:ring-[#EE4C7C]/20
+            "
 
             />
 

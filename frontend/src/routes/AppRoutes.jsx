@@ -6,7 +6,7 @@ import Dashboard from "../pages/Dashboard";
 import Assessment from "../pages/Assessment";
 import Profile from "../pages/Profile";
 import NotFound from "../pages/NotFound";
-
+import ProtectedRoute from "../components/ProtectedRoute";
 export default function AppRoutes() {
     return (
         <Routes>
@@ -17,11 +17,32 @@ export default function AppRoutes() {
 
             <Route path="/register" element={<Register />} />
 
-            <Route path="/dashboard" element={<Dashboard />} />
+            <Route
+                path="/dashboard"
+                element={
+                    <ProtectedRoute>
+                        <Dashboard />
+                    </ProtectedRoute>
+                }
+            />
 
-            <Route path="/assessment" element={<Assessment />} />
+            <Route
+                path="/assessment"
+                element={
+                    <ProtectedRoute>
+                        <Assessment />
+                    </ProtectedRoute>
+                }
+            />
 
-            <Route path="/profile" element={<Profile />} />
+            <Route
+                path="/profile"
+                element={
+                    <ProtectedRoute>
+                        <Profile />
+                    </ProtectedRoute>
+                }
+            />
 
             <Route path="*" element={<NotFound />} />
 

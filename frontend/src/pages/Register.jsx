@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-
+import { motion } from "framer-motion";
 import { toast } from "react-hot-toast";
 
 import Card from "../components/common/Card";
@@ -16,31 +16,19 @@ export default function Register() {
     const [loading, setLoading] = useState(false);
 
     const [form, setForm] = useState({
-
         full_name: "",
-
         email: "",
-
         password: "",
-
         department: "",
-
         year: "",
-
         semester: ""
-
     });
 
     const handleChange = (e) => {
-
         setForm({
-
             ...form,
-
             [e.target.name]: e.target.value
-
         });
-
     };
 
     const handleSubmit = async (e) => {
@@ -57,21 +45,14 @@ export default function Register() {
 
             navigate("/login");
 
-        }
-
-        catch(error){
+        } catch (error) {
 
             toast.error(
-
                 error.response?.data?.detail ||
-
                 "Registration Failed"
-
             );
 
-        }
-
-        finally{
+        } finally {
 
             setLoading(false);
 
@@ -79,107 +60,169 @@ export default function Register() {
 
     };
 
-    return(
+    return (
 
-        <div className="min-h-screen flex items-center justify-center bg-[#FDF0D5]">
+        <div className="min-h-screen bg-[#E3E2DF] flex">
 
-            <Card className="w-full max-w-lg">
+            {/* LEFT */}
 
-                <h2 className="text-3xl font-bold text-[#003049] mb-8">
+            <motion.div
+                initial={{ opacity: 0, x: -50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: .6 }}
+                className="hidden lg:flex w-1/2 items-center justify-center px-20 py-16 relative overflow-hidden"
+            >
 
-                    Create Account
+                <div className="absolute w-96 h-96 rounded-full bg-[#E3AFBC]/30 blur-3xl"></div>
 
-                </h2>
+                <div className="relative z-10">
 
-                <form
-                    onSubmit={handleSubmit}
-                    className="space-y-4"
+                    <h1 className="
+                        text-7xl
+                        font-black
+                        leading-none
+                        tracking-tight
+                        text-[#5D001E]
+                    ">
+                        CampusWell AI
+                    </h1>
+
+                    <p className="
+                        mt-8
+                        max-w-xl
+                        text-lg
+                        leading-8
+                        text-[#9A1750]
+                    ">
+                        Join CampusWell AI and access personalized mental health
+                        assessments, wellness insights, and AI-powered support
+                        designed for students in higher education.
+                    </p>
+
+                </div>
+
+            </motion.div>
+
+            {/* RIGHT */}
+
+            <div className="flex flex-1 items-center justify-center p-10">
+
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: .5 }}
+                    className="w-full max-w-lg"
                 >
 
-                    <Input
-                        label="Full Name"
-                        name="full_name"
-                        value={form.full_name}
-                        onChange={handleChange}
-                    />
+                    <Card>
 
-                    <Input
-                        label="Email"
-                        name="email"
-                        value={form.email}
-                        onChange={handleChange}
-                    />
+                        <h2 className="
+                            text-4xl
+                            font-black
+                            tracking-tight
+                            text-[#5D001E]
+                        ">
+                            Create Account
+                        </h2>
 
-                    <Input
-                        label="Password"
-                        type="password"
-                        name="password"
-                        value={form.password}
-                        onChange={handleChange}
-                    />
+                        <p className="
+                            mt-3
+                            text-[#9A1750]
+                        ">
+                            Start your CampusWell journey today.
+                        </p>
 
-                    <Input
-                        label="Department"
-                        name="department"
-                        value={form.department}
-                        onChange={handleChange}
-                    />
+                        <form
+                            onSubmit={handleSubmit}
+                            className="mt-10 space-y-5"
+                        >
 
-                    <Input
-                        label="Year"
-                        type="number"
-                        name="year"
-                        value={form.year}
-                        onChange={handleChange}
-                    />
+                            <Input
+                                label="Full Name"
+                                name="full_name"
+                                value={form.full_name}
+                                onChange={handleChange}
+                            />
 
-                    <Input
-                        label="Semester"
-                        type="number"
-                        name="semester"
-                        value={form.semester}
-                        onChange={handleChange}
-                    />
+                            <Input
+                                label="Email"
+                                name="email"
+                                value={form.email}
+                                onChange={handleChange}
+                            />
 
-                    <Button>
+                            <Input
+                                label="Password"
+                                type="password"
+                                name="password"
+                                value={form.password}
+                                onChange={handleChange}
+                            />
 
-                        {
+                            <Input
+                                label="Department"
+                                name="department"
+                                value={form.department}
+                                onChange={handleChange}
+                            />
 
-                            loading
+                            <div className="grid grid-cols-2 gap-4">
 
-                            ?
+                                <Input
+                                    label="Year"
+                                    type="number"
+                                    name="year"
+                                    value={form.year}
+                                    onChange={handleChange}
+                                />
 
-                            "Creating..."
+                                <Input
+                                    label="Semester"
+                                    type="number"
+                                    name="semester"
+                                    value={form.semester}
+                                    onChange={handleChange}
+                                />
 
-                            :
+                            </div>
 
-                            "Register"
+                            <Button type="submit">
 
-                        }
+                                {loading ? "Creating Account..." : "Register"}
 
-                    </Button>
+                            </Button>
 
-                </form>
+                        </form>
 
-                <p className="mt-6 text-center">
+                        <p className="
+                            mt-8
+                            text-center
+                            text-sm
+                            text-[#5D001E]
+                        ">
 
-                    Already have an account?
+                            Already have an account?
 
-                    <Link
+                            <Link
+                                to="/login"
+                                className="
+                                    ml-2
+                                    font-semibold
+                                    text-[#EE4C7C]
+                                    transition-colors
+                                    hover:text-[#9A1750]
+                                "
+                            >
+                                Login
+                            </Link>
 
-                        to="/login"
+                        </p>
 
-                        className="ml-2 text-[#C1121F]"
+                    </Card>
 
-                    >
+                </motion.div>
 
-                        Login
-
-                    </Link>
-
-                </p>
-
-            </Card>
+            </div>
 
         </div>
 

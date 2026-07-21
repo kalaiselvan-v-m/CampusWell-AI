@@ -1,8 +1,14 @@
+import DashboardLayout from "../components/layout/DashboardLayout";
+
 export default function Assessment(){
 
     return(
 
-        <h1>Assessment</h1>
+        <DashboardLayout>
+
+            Assessment Page
+
+        </DashboardLayout>
 
     );
 

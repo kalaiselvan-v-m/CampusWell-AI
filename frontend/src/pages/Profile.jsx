@@ -1,8 +1,14 @@
+import DashboardLayout from "../components/layout/DashboardLayout";
+
 export default function Profile(){
 
     return(
 
-        <h1>Profile</h1>
+        <DashboardLayout>
+
+            Profile Page
+
+        </DashboardLayout>
 
     );
 

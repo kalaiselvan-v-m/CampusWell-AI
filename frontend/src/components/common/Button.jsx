@@ -19,19 +19,21 @@ export default function Button({
             onClick={onClick}
 
             className={`
-                w-full
-                rounded-xl
-                bg-[#C1121F]
-                py-3
-                text-white
-                font-semibold
-                transition-all
-                duration-300
-                hover:bg-[#780000]
-                hover:scale-[1.02]
-                active:scale-95
-                ${className}
-            `}
+            w-full
+            rounded-lg
+            bg-[#9A1750]
+            py-3
+            text-white
+            font-semibold
+            tracking-wide
+            transition-all
+            duration-300
+            hover:bg-[#5D001E]
+            hover:-translate-y-0.5
+            active:scale-95
+            shadow-md
+            ${className}
+        `}
         >
 
             {children}
