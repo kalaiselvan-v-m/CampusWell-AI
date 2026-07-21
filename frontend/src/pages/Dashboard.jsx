@@ -8,37 +8,20 @@ import AssessmentSummary from "../components/dashboard/AssessmentSummary";
 import RecommendationCard from "../components/dashboard/RecommendationCard";
 
 export default function Dashboard() {
-
     return (
-
         <DashboardLayout>
-
-            <section className="mx-auto w-full max-w-7xl space-y-8 px-6 py-8">
-
+            <section className="mx-auto w-full max-w-6xl space-y-6 px-8 py-8 animate-fade-up">
                 <WelcomeBanner />
-
-                <div className="grid gap-8 lg:grid-cols-2">
-
+                <div className="grid gap-6 lg:grid-cols-2">
                     <WellnessScoreCard />
-
                     <MoodCard />
-
                 </div>
-
-                <div className="grid gap-8 lg:grid-cols-2">
-
+                <div className="grid gap-6 lg:grid-cols-2">
                     <AssessmentSummary />
-
                     <QuickActions />
-
                 </div>
-
                 <RecommendationCard />
-
             </section>
-
         </DashboardLayout>
-
     );
-
 }

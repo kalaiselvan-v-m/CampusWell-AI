@@ -1,16 +1,4 @@
-@import "tailwindcss";
-
-@theme {
-
-    --color-primary-dark: #5D001E;
-    --color-primary: #9A1750;
-    --color-accent: #EE4C7C;
-    --color-background: #E3E2DF;
-    --color-secondary: #E3AFBC;
-
-    --font-sans: "Proxima Nova", Inter, sans-serif;
-}
-
-body{
-    @apply bg-background text-primary-dark font-sans;
-}
+/* NOTE: the app currently imports "../index.css" from main.jsx.
+   This file mirrors the same token system in case the entry
+   point is switched to import from /src/styles instead. */
+@import "../index.css";

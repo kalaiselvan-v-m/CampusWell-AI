@@ -1,132 +1,40 @@
 import { Sparkles, ArrowRight } from "lucide-react";
 
 export default function RecommendationCard() {
-
     return (
+        <div className="relative overflow-hidden rounded-2xl bg-primary-dark px-9 py-9 text-white">
 
-        <div className="
-            relative
-            overflow-hidden
-            rounded-3xl
-            bg-[#5D001E]
-            p-8
-            text-white
-            shadow-sm
-        ">
-
-            {/* Background Decoration */}
-
-            <div className="
-                absolute
-                -right-20
-                -top-20
-                h-72
-                w-72
-                rounded-full
-                bg-[#EE4C7C]/15
-            " />
-
-            <div className="
-                absolute
-                -bottom-24
-                -left-20
-                h-72
-                w-72
-                rounded-full
-                bg-[#E3AFBC]/10
-            " />
+            <div className="absolute -bottom-20 -right-16 h-56 w-56 rounded-full bg-accent/10" />
 
             <div className="relative z-10">
-
-                <div className="flex items-center gap-4">
-
-                    <div className="
-                        flex
-                        h-14
-                        w-14
-                        items-center
-                        justify-center
-                        rounded-2xl
-                        bg-[#EE4C7C]
-                    ">
-
-                        <Sparkles size={26} />
-
+                <div className="flex items-center gap-3.5">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-accent/20">
+                        <Sparkles size={18} className="text-accent" />
                     </div>
-
                     <div>
-
-                        <p className="
-                            uppercase
-                            tracking-[0.25em]
-                            text-xs
-                            text-[#E3AFBC]
-                        ">
-
+                        <p className="text-xs uppercase tracking-[0.14em] text-white/50">
                             Personalized AI
-
                         </p>
-
-                        <h2 className="mt-1 text-3xl font-black">
-
-                            Today's Recommendation
-
+                        <h2 className="font-display text-xl font-medium">
+                            Today's recommendation
                         </h2>
-
                     </div>
-
                 </div>
 
-                <p className="
-                    mt-8
-                    max-w-3xl
-                    text-lg
-                    leading-9
-                    text-[#E3E2DF]
-                ">
-
-                    Based on your recent wellness assessment,
-                    your mood trends, and your sleep quality,
-                    we recommend taking a
-                    <span className="font-bold text-[#EE4C7C]">
-                        {" "}15-minute walk
-                    </span>,
-                    staying hydrated throughout the day,
-                    and completing a
-                    <span className="font-bold text-[#EE4C7C]">
-                        {" "}5-minute breathing exercise
-                    </span>
+                <p className="mt-6 max-w-2xl text-[15px] leading-8 text-white/70">
+                    Based on your recent wellness assessment, mood trends, and
+                    sleep quality, we recommend a{" "}
+                    <span className="font-medium text-white">15-minute walk</span>,
+                    staying hydrated throughout the day, and a{" "}
+                    <span className="font-medium text-white">5-minute breathing exercise</span>{" "}
                     before bedtime.
-
                 </p>
 
-                <button
-                    className="
-                        mt-8
-                        inline-flex
-                        items-center
-                        gap-3
-                        rounded-xl
-                        bg-[#EE4C7C]
-                        px-6
-                        py-3
-                        font-semibold
-                        transition-all
-                        duration-300
-                        hover:scale-105
-                    "
-                >
-
-                    View Wellness Plan
-
-                    <ArrowRight size={18} />
-
+                <button className="group mt-7 inline-flex items-center gap-2.5 rounded-xl bg-white px-5 py-3 text-sm font-medium text-primary-dark transition-transform duration-200 hover:-translate-y-[1px]">
+                    View wellness plan
+                    <ArrowRight size={15} className="transition-transform duration-200 group-hover:translate-x-0.5" />
                 </button>
-
             </div>
-
         </div>
-
     );
-
 }
