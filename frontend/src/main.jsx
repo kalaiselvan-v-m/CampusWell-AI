@@ -1,19 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { BrowserRouter } from "react-router-dom";
-import { Toaster } from "react-hot-toast";
-import { AuthProvider } from "./contexts/AuthContext";
 
-import App from "./App";
-import "./index.css";   // or "./styles/globals.css" if that's where your styles are
+import { RouterProvider } from "@tanstack/react-router";
+
+import { getRouter } from "./router.jsx";
+
+import "./styles.css";
+
+const router = getRouter();
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-    <React.StrictMode>
-        <AuthProvider>
-            <BrowserRouter>
-                <Toaster position="top-right"/>
-                <App />
-            </BrowserRouter>
-        </AuthProvider>
-    </React.StrictMode>
+  <React.StrictMode>
+    <RouterProvider router={router} />
+  </React.StrictMode>
 );
